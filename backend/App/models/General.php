@@ -19,6 +19,38 @@ sql;
 
     return $mysqli->queryAll($query);
   }
+
+  public static function getAllConstanciasRegistradas($data){
+    $mysqli = Database::getInstance();
+    $query =<<<sql
+    SELECT * FROM impresion_constancia
+    WHERE user_id = '$data';
+sql;
+
+    return $mysqli->queryAll($query);
+  }
+
+  public static function insertImpresionConstancia($user_id,$tipo_constancia){
+    $mysqli = Database::getInstance(true);
+    $query=<<<sql
+    INSERT INTO impresion_constancia (user_id, tipo_constancia, id_producto,fecha_descarga, status) VALUES('$user_id', '$tipo_constancia',1,NOW(),2)
+sql;
+
+    return $mysqli->insert($query);
+  }
+
+  public static function updateConstanciaStatus($data){
+    $mysqli = Database::getInstance(true);
+    $query=<<<sql
+      UPDATE impresion_constancia
+      SET fecha_descarga = NOW(), status = 2
+      WHERE user_id = '$data';
+sql;
+
+    $accion = new \stdClass();
+    $accion->_sql= $query;
+    return $mysqli->update($query);
+}
   
   public static function getAllColaboradores(){
     $mysqli = Database::getInstance();
