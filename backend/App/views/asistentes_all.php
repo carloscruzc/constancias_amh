@@ -73,7 +73,7 @@
                                                 <input class="form-control mr-sm-2" style="font-size: 35px;" autofocus type="search" id="search" name="search" placeholder="Ej. nombre_123@hotmail.com" aria-label="Search">
                                             </div>
                                             <div class="col-12 col-md-12 mt-md-2">
-                                                <button class="btn max-btn-lg bg-gradient-pink-white text-white my-2 my-sm-0" type="submit">↑↑↑ ¡Busca tu correo! ↑↑↑</button>
+                                                <button class="btn max-btn-lg bg-gradient-pink-white text-white my-2 my-sm-0" type="submit">↑↑↑ ¡Ingresa tu correo para descargar tu constancia! ↑↑↑</button>
                                             </div>
                                         </div>
                                     </form>
@@ -105,100 +105,6 @@
 
     </main>
     <?php echo $modal;?>
-<!-- MODAL AGREGAR USUARIO -->
-    <div class="modal fade" id="Modal_Add" role="dialog" aria-labelledby="" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        Asistente para Crear Usuarios
-                    </h5>
-
-                    <span type="button" class="btn bg-gradient-danger" data-dismiss="modal" aria-label="Close">
-                        X
-                    </span>
-                </div>
-                <div class="modal-body">
-                    <p style="font-size: 12px">A continuación ingrese los datos del usuario.</p>
-                    <hr>
-                    <form method="POST" enctype="multipart/form-data" id="form_datos">
-                        <div class="form-group row">
-                            <div class="form-group col-md-4">
-                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="nombre">Nombre <span class="required">*</span></label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="apellidop">Apellido Paterno <span class="required">*</span></label>
-                                <input type="text" class="form-control" id="apellidop" name="apellidop" placeholder="Apellido Paterno" required  style="text-transform:uppercase;"onkeyup="javascript:this.value=this.value.toUpperCase();">
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="apellidom">Apellido Materno <span class="required"></span></label>
-                                <input type="text" class="form-control" id="apellidom" name="apellidom" placeholder="Apellido Materno" require style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="usuario">Email <span class="required">*</span></label>
-                                <input type="email" class="form-control" id="usuario" name="usuario" placeholder="Email" required>
-                                <span id="msg_email" style="font-size: 0.75rem; font-weight: 700;margin-bottom: 0.5rem;"></span>
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="title">Prefijo <span class="required">*</span></label>
-                                <select class="multisteps-form__select form-control all_input_select" name="title" id="title" required>
-                                    <option value="" selected>Selecciona una Opción</option>
-                                    <option value="Dr.">Dr.</option>
-                                    <option value="Dra.">Dra.</option>
-                                    <option value="Sr.">Sr.</option>
-                                    <option value="Sra.">Sra.</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="telefono">Telefono <span class="required">*</span></label>
-                                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" required>
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="pais">País <span class="required">*</span></label>
-                                <select class="multisteps-form__select form-control all_input_select" name="pais" id="pais" required>
-                                    <option value="" selected>Selecciona una Opción</option>
-                                    <?= $optionPais ?>
-                                </select>
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="estado">Estado <span class="required">*</span></label>
-                                <select class="multisteps-form__select form-control all_input_select" name="estado" id="estado" required disabled>
-                                    <option value="" selected>Selecciona una Opción</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="categoria">Categoría <span class="required">*</span></label>
-                                <select class="multisteps-form__select form-control all_input_select" name="categoria" id="categoria" required>
-                                    <option value="" selected>Selecciona una Opción</option>
-                                    <?= $optionCate ?>
-                                </select>
-                            </div>
-
-                            <div class="form-group col-md-12">
-                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="motivo">Motivo <span class="required">*</span></label>
-                                <textarea id="motivo" name="motivo" class="form-control"></textarea>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="submit" class="btn bg-gradient-success" id="btn_upload" name="btn_upload">Aceptar</button>
-                                <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Cancelar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
 </body>
 
 <?php echo $footer; ?>

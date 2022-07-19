@@ -64,10 +64,12 @@ html;
     public function Usuario() {
         $search = $_POST['search'];
         $datos_user = GeneralDao::getAllAsistentesGafete($search)[0];
-        if($datos_user<1){
-            echo '<script>alert("ESTE CORREO NO TIENE ACCESO A CONSTANCIA")</script>';
-        }else{
-        $this->abrirConstancia($search);
+        if($search){
+            if($datos_user<1){
+                echo '<script>alert("ESTE CORREO NO TIENE ACCESO A CONSTANCIA")</script>';
+            }else{
+            $this->abrirConstancia($search);
+            }
         }
         View::render("asistentes_all");
     }
